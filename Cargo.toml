@@ -1,0 +1,9 @@
+[package]
+name = "post"
+version = "0.0.0"
+authors = ["Tshepang Lekhonkhobe <tshepang@gmail.com>"]
+
+[dependencies]
+dirs = "1"
+structopt = "0.2"
+chrono = "0.4"
