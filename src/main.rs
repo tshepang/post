@@ -17,10 +17,7 @@ struct Opt {
 
 fn run() -> io::Result<()> {
     let cli = Opt::from_args();
-    let mut dir = home_dir().expect("No $HOME!?").join("blog/content");
-    if cli.movies {
-        dir = dir.join("movies");
-    }
+    let dir = home_dir().expect("No $HOME!?").join("blog/content");
     let today = chrono::Local::today().naive_local();
     let output = format!(
         "
@@ -29,10 +26,17 @@ title = {:?}
 date = {:?}
 
 [taxonomies]
-tags = {:?}
+tags = {:?}{}
 +++
         ",
-        cli.title, today, cli.tags
+        cli.title,
+        today,
+        cli.tags,
+        if cli.movies {
+            "\ncategories = ['movies']"
+        } else {
+            ""
+        }
     );
     let output = output.trim();
     let path = dir.join(cli.title).with_extension("md");
