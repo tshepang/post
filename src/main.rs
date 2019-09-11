@@ -4,9 +4,9 @@ use structopt::StructOpt;
 
 #[derive(Debug, StructOpt)]
 struct Opt {
-    #[structopt(long = "movies")]
+    #[structopt(long)]
     movies: bool,
-    #[structopt(long = "tags", required = true)]
+    #[structopt(long, required = true)]
     tags: Vec<String>,
     title: String,
 }
