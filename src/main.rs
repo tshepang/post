@@ -1,7 +1,3 @@
-extern crate chrono;
-extern crate dirs;
-extern crate structopt;
-
 use dirs::home_dir;
 use std::{fs, io};
 use structopt::StructOpt;
