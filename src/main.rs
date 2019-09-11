@@ -2,7 +2,7 @@ use dirs::home_dir;
 use std::{fs, io, process};
 use structopt::StructOpt;
 
-#[derive(Debug, StructOpt)]
+#[derive(StructOpt)]
 struct Opt {
     #[structopt(long)]
     movies: bool,
