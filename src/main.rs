@@ -1,5 +1,5 @@
 use dirs::home_dir;
-use std::{fs, io};
+use std::{fs, io, process};
 use structopt::StructOpt;
 
 #[derive(Debug, StructOpt)]
@@ -42,7 +42,7 @@ tags = {:?}{}
     } else {
         fs::write(&path, output)?;
     }
-    std::process::Command::new("editor").arg(path).status()?;
+    process::Command::new("editor").arg(path).status()?;
 
     Ok(())
 }
@@ -50,5 +50,6 @@ tags = {:?}{}
 fn main() {
     if let Err(why) = run() {
         eprintln!("{}", why);
+        process::exit(1);
     }
 }
