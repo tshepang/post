@@ -1,4 +1,5 @@
 use dirs::home_dir;
+use slug::slugify;
 use std::{fs, io, process};
 use structopt::StructOpt;
 
@@ -35,7 +36,7 @@ tags = {:?}{}
         }
     );
     let output = output.trim();
-    let path = dir.join(cli.title).with_extension("md");
+    let path = dir.join(slugify(cli.title)).with_extension("md");
     eprintln!("{}", path.display());
     if path.exists() {
         eprintln!("path exists already, opening ...");
