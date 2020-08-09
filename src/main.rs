@@ -30,7 +30,7 @@ tags = {:?}{}
         today,
         cli.tags,
         if cli.movies {
-            "\ncategories = ['movies']"
+            "\ncategories = [\"movies\"]"
         } else {
             ""
         }
