@@ -6,6 +6,9 @@ edition = "2018"
 
 [dependencies]
 dirs = "3"
-structopt = "0.3"
 chrono = "0.4"
 slug = "0.1"
+
+[dependencies.clap]
+version = "3"
+features = [ "derive" ]

@@ -1,19 +1,19 @@
+use clap::Parser;
 use dirs::home_dir;
 use slug::slugify;
 use std::{fs, io, process};
-use structopt::StructOpt;
 
-#[derive(StructOpt)]
+#[derive(Parser)]
 struct Opt {
-    #[structopt(long)]
+    #[clap(long)]
     movies: bool,
-    #[structopt(long, required = true)]
+    #[clap(long, required = true)]
     tags: Vec<String>,
     title: String,
 }
 
 fn run() -> io::Result<()> {
-    let cli = Opt::from_args();
+    let cli = Opt::parse();
     let dir = home_dir().expect("No $HOME!?").join("blog/content");
     let today = chrono::Local::today().naive_local();
     let output = format!(
