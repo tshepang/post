@@ -1,6 +1,6 @@
 [package]
 name = "post"
-version = "0.0.0"
+version = "0.0.1"
 authors = ["Tshepang Lekhonkhobe <tshepang@gmail.com>"]
 edition = "2018"
 rust-version = "1.54"
