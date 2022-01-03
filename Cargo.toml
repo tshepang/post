@@ -6,7 +6,7 @@ edition = "2018"
 
 [dependencies]
 anyhow = "1"
-dirs = "4"
+dirs-next = "2"
 slug = "0.1"
 
 [dependencies.clap]

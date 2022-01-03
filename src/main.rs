@@ -2,7 +2,7 @@ use std::{fs, process};
 
 use anyhow::Result;
 use clap::Parser;
-use dirs::home_dir;
+use dirs_next::home_dir;
 use slug::slugify;
 
 #[derive(Parser)]
