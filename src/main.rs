@@ -1,7 +1,8 @@
+use anyhow::Result;
 use clap::Parser;
 use dirs::home_dir;
 use slug::slugify;
-use std::{fs, io, process};
+use std::{fs, process};
 
 #[derive(Parser)]
 struct Opt {
@@ -12,15 +13,17 @@ struct Opt {
     title: String,
 }
 
-fn run() -> io::Result<()> {
+fn main() -> Result<()> {
     let cli = Opt::parse();
     let dir = home_dir().expect("No $HOME!?").join("blog/content");
-    let today = chrono::Local::today().naive_local();
+    let format = time::format_description::parse("[year]-[month]-[day]")?;
+    let today = time::OffsetDateTime::now_local()?;
+    let today = today.format(&format)?;
     let output = format!(
         "
 +++
 title = {:?}
-date = {:?}
+date = {}
 
 [taxonomies]
 tags = {:?}{}
@@ -46,11 +49,4 @@ tags = {:?}{}
     process::Command::new("xdg-open").arg(path).status()?;
 
     Ok(())
-}
-
-fn main() {
-    if let Err(why) = run() {
-        eprintln!("{}", why);
-        process::exit(1);
-    }
 }
