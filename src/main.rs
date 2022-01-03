@@ -1,4 +1,4 @@
-use std::{fs, process};
+use std::{fs, process::Command};
 
 use anyhow::Result;
 use clap::Parser;
@@ -47,7 +47,7 @@ tags = {:?}{}
     } else {
         fs::write(&path, output)?;
     }
-    process::Command::new("xdg-open").arg(path).status()?;
+    Command::new("xdg-open").arg(path).status()?;
 
     Ok(())
 }
