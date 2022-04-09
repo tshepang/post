@@ -47,7 +47,7 @@ tags = {:?}{}
     } else {
         fs::write(&path, output)?;
     }
-    Command::new("xdg-open").arg(path).status()?;
+    Command::new("editor").arg(path).status()?;
 
     Ok(())
 }
