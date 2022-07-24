@@ -3,7 +3,7 @@ name = "post"
 version = "0.0.3"
 authors = ["Tshepang Mbambo <tshepang@gmail.com>"]
 edition = "2018"
-rust-version = "1.54"
+rust-version = "1.57"
 
 [dependencies]
 anyhow = "1"
