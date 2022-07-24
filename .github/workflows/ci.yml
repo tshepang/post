@@ -1,0 +1,30 @@
+name: CI
+on:
+  - push
+  - pull_request
+jobs:
+  build:
+    name: ${{ matrix.os }} (${{ matrix.rust }})
+    runs-on: ${{ matrix.os }}
+    strategy:
+      matrix:
+        rust:
+          - 1.57.0
+          - stable
+        # https://github.com/actions/virtual-environments#available-environments
+        os:
+          - macos-latest
+          - ubuntu-latest
+          - windows-latest
+    steps:
+    - uses: actions/checkout@v3
+    - name: install ${{ matrix.rust }} toolchain
+      uses: dtolnay/rust-toolchain@master
+      with:
+          toolchain: ${{ matrix.rust }}
+    - name: build
+      run: cargo build
+    - name: security audit
+      uses: actions-rs/audit-check@v1.2.0
+      with:
+        token: ${{ secrets.GITHUB_TOKEN }}
