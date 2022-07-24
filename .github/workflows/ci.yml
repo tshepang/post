@@ -17,14 +17,17 @@ jobs:
           - ubuntu-latest
           - windows-latest
     steps:
-    - uses: actions/checkout@v3
-    - name: install ${{ matrix.rust }} toolchain
-      uses: dtolnay/rust-toolchain@master
-      with:
-          toolchain: ${{ matrix.rust }}
-    - name: build
-      run: cargo build
-    - name: security audit
-      uses: actions-rs/audit-check@v1.2.0
-      with:
-        token: ${{ secrets.GITHUB_TOKEN }}
+      - uses: actions/checkout@v3
+      - name: install ${{ matrix.rust }} toolchain
+        uses: dtolnay/rust-toolchain@master
+        with:
+            toolchain: ${{ matrix.rust }}
+      - name: build
+        run: cargo build
+  security-audit:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - uses: actions-rs/audit-check@v1.2.0
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
