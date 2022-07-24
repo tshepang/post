@@ -9,7 +9,7 @@ use slug::slugify;
 struct Opt {
     #[clap(long)]
     movies: bool,
-    #[clap(long, required = true)]
+    #[clap(long, required = true, multiple_values = true)]
     tags: Vec<String>,
     title: String,
 }
