@@ -3,14 +3,14 @@ name = "post"
 version = "0.0.3"
 authors = ["Tshepang Mbambo <tshepang@gmail.com>"]
 edition = "2021"
-rust-version = "1.57"
+rust-version = "1.60"
 
 [dependencies]
 anyhow = "1"
 slug = "0.1"
 
 [dependencies.clap]
-version = "3"
+version = "4"
 features = [
   "derive",
 ]

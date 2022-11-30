@@ -6,9 +6,9 @@ use slug::slugify;
 
 #[derive(Parser)]
 struct Opt {
-    #[clap(long)]
+    #[arg(long)]
     movies: bool,
-    #[clap(long, multiple_values = true, default_value = "untagged")]
+    #[arg(long, num_args = 1.., default_value = "untagged")]
     tags: Vec<String>,
     title: String,
 }
