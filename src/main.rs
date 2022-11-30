@@ -1,8 +1,7 @@
-use std::{fs, process::Command};
+use std::{env, fs, process::Command};
 
 use anyhow::Result;
 use clap::Parser;
-use dirs_next::home_dir;
 use slug::slugify;
 
 #[derive(Parser)]
@@ -16,7 +15,7 @@ struct Opt {
 
 fn main() -> Result<()> {
     let cli = Opt::parse();
-    let dir = home_dir().expect("No $HOME!?").join("blog/content");
+    let dir = env::current_dir()?.join("content");
     let format = time::format_description::parse("[year]-[month]-[day]")?;
     let today = time::OffsetDateTime::now_local()?;
     let today = today.format(&format)?;
