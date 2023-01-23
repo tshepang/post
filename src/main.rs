@@ -5,7 +5,7 @@ use clap::Parser;
 use slug::slugify;
 
 #[derive(Parser)]
-struct Opt {
+struct Cli {
     #[arg(long)]
     movies: bool,
     #[arg(long, num_args = 1.., default_value = "untagged")]
@@ -14,7 +14,7 @@ struct Opt {
 }
 
 fn main() -> Result<()> {
-    let cli = Opt::parse();
+    let cli = Cli::parse();
     let dir = env::current_dir()?.join("content");
     let format = time::format_description::parse("[year]-[month]-[day]")?;
     let today = time::OffsetDateTime::now_local()?;
