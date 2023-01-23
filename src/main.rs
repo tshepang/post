@@ -46,7 +46,7 @@ tags = {:?}{}
     } else {
         fs::write(&path, output)?;
     }
-    Command::new("editor").arg(path).status()?;
+    Command::new("hx").arg(path).status()?;
 
     Ok(())
 }
