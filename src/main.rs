@@ -5,6 +5,7 @@ use clap::Parser;
 use slug::slugify;
 
 #[derive(Parser)]
+#[command(version)]
 struct Cli {
     #[arg(long)]
     movies: bool,
