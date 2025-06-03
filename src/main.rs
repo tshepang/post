@@ -17,8 +17,7 @@ struct Cli {
 fn main() -> Result<()> {
     let cli = Cli::parse();
     let dir = env::current_dir()?.join("content");
-    let now = jiff::Zoned::now();
-    let today = now.strftime("%F");
+    let today = jiff::Zoned::now().strftime("%F");
     let output = format!(
         "
 +++
