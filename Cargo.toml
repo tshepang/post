@@ -10,9 +10,7 @@ slug = "0.1"
 
 [dependencies.clap]
 version = "4"
-features = [
-  "derive",
-]
+features = ["derive"]
 
 [dependencies.jiff]
 version = "0.2"
