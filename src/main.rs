@@ -22,14 +22,13 @@ fn main() -> Result<()> {
         "
 +++
 title = {:?}
-date = {}
+date = {today}
 
 [taxonomies]
 tags = {:?}{}
 +++
         ",
         cli.title,
-        today,
         cli.tags,
         if cli.movies {
             "\ncategories = [\"movies\"]"
