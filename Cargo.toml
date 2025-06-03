@@ -1,7 +1,6 @@
 [package]
 name = "post"
 version = "0.0.5"
-authors = ["Tshepang Mbambo <hopsi@tuta.io>"]
 edition = "2021"
 rust-version = "1.74" # ensure that CI msrv matches
 
