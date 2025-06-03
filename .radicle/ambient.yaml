@@ -3,6 +3,4 @@ pre_plan:
 plan:
   - action: cargo_fmt
   - action: cargo_clippy
-  - action: shell
-    shell: |
-      cargo build
+  - action: cargo_build
