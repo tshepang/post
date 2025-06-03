@@ -15,9 +15,7 @@ features = [
   "derive",
 ]
 
-[dependencies.time]
-version = "0.3"
-features = [
-  "formatting",
-  "local-offset",
-]
+[dependencies.jiff]
+version = "0.2"
+default-features = false
+features = ["std"]
