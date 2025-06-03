@@ -1,5 +1,3 @@
-pre_plan:
-  - action: cargo_fetch
 plan:
   - action: cargo_fmt
   - action: cargo_clippy
