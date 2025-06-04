@@ -25,13 +25,14 @@ title = {:?}
 date = {today}
 
 [taxonomies]
-tags = {:?}{}
+tags = {:?}
+{}
 +++
         ",
         cli.title,
         cli.tags,
         if cli.movies {
-            "\ncategories = [\"movies\"]"
+            "categories = [\"movies\"]"
         } else {
             ""
         }
