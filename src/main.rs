@@ -18,7 +18,7 @@ fn main() -> Result<()> {
     let cli = Cli::parse();
     let dir = env::current_dir()?.join("content");
     let today = jiff::Zoned::now().strftime("%F");
-    let output = format!(
+    let output = format!
         "
 +++
 title = {:?}
